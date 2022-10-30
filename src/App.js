@@ -1,12 +1,20 @@
 import "./App.css";
-import { Button } from "react-bootstrap";
+import { Button, Container } from "react-bootstrap";
+import { Title } from "./components/Title";
+import { SearchForm } from "./components/SearchForm";
+import { MovieList } from "./components/MovieList";
 
 function App() {
   return (
-    <div className="App">
-      <h1> Hello World</h1>
-      <button>Hello</button>
-      <Button>Hello</Button>
+    <div className="wrapper">
+      <Container>
+        {/* title */}
+        <Title />
+
+        {/* form  */}
+        <SearchForm />
+        <MovieList />
+      </Container>
     </div>
   );
 }
