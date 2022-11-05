@@ -12,7 +12,9 @@ function App() {
     const newArg = movies.filter((item) => item.imdbID !== movieObj.imdbID);
     setMovies([...newArg, movieObj]);
   };
+
   console.log(movies);
+
   return (
     <div className="wrapper">
       <Container>

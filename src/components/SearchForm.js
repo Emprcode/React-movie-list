@@ -3,13 +3,26 @@ import Form from "react-bootstrap/Form";
 import Row from "react-bootstrap/Row";
 import { Alert, Button } from "react-bootstrap";
 import { MovieCard } from "./MovieCard";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { fetchData } from "../utilities/AxiosHelpers";
+import { randomChar } from "../utilities/randomGenerator";
 
 export const SearchForm = ({ addMovie }) => {
   const [form, setForm] = useState("");
   const [movie, setMovie] = useState({});
   const [error, setError] = useState("");
+
+  useEffect(() => {
+    const char = randomChar();
+    console.log(char);
+
+    const initialFetch = async () => {
+      const resp = await fetchData(char);
+
+      setMovie(resp.data);
+    };
+    initialFetch();
+  }, []);
   // get the form data while
 
   const handleOnChange = (e) => {
