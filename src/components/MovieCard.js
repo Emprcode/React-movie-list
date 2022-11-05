@@ -1,10 +1,13 @@
 import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 
-export const MovieCard =() =>  {
+export const MovieCard =({movie ={}}) =>  {
+  console.log(movie)
+
+  const {Poster} =  movie;
   return (
     <Card style={{ width: '18rem', marginTop: '10px' }}>
-      <Card.Img variant="top" src="holder.js/100px180" />
+      <Card.Img variant="top" src={Poster} />
       <Card.Body>
         <Card.Title>Card Title</Card.Title>
         <Card.Text>
