@@ -1,10 +1,10 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 
-export const MovieCard = ({ movie = {}, func }) => {
+export const MovieCard = ({ movie = {}, func, showDelete }) => {
   console.log(movie);
 
-  const { Poster, Title, Year, imdbRating, Plot } = movie;
+  const { Poster, Title, Year, imdbRating, Plot, imdbID } = movie;
   return (
     <Card style={{ width: "18rem", marginTop: "10px" }}>
       <Card.Img variant="top" src={Poster} />
@@ -15,14 +15,23 @@ export const MovieCard = ({ movie = {}, func }) => {
           <div> Rating: {imdbRating}</div>
           <div> {Plot}</div>
         </Card.Text>
-        <div className="d-flex justify-content-between">
-          <Button onClick={() => func("happy")} variant="primary">
-            Happy
-          </Button>
-          <Button onClick={() => func("lazy")} variant="warning">
-            Sad{" "}
-          </Button>
-        </div>
+        {showDelete ? (
+          <div className="d-grid">
+            <Button onClick={() => func(imdbID)} variant="danger">
+              {" "}
+              Delete{" "}
+            </Button>
+          </div>
+        ) : (
+          <div className="d-flex justify-content-between">
+            <Button onClick={() => func("happy")} variant="primary">
+              Happy
+            </Button>
+            <Button onClick={() => func("lazy")} variant="warning">
+              Sad{" "}
+            </Button>
+          </div>
+        )}
       </Card.Body>
     </Card>
   );

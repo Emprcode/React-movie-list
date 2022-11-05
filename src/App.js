@@ -15,6 +15,13 @@ function App() {
 
   console.log(movies);
 
+  const handleOnDelete = (id) => {
+    if (window.confirm("Are you sure you want to delete this movie")) {
+      setMovies(movies.filter((item) => item.imdbID !== id));
+    }
+    console.log(id);
+  };
+
   return (
     <div className="wrapper">
       <Container>
@@ -23,7 +30,7 @@ function App() {
 
         {/* form  */}
         <SearchForm addMovie={addMovie} />
-        <MovieList movies={movies} />
+        <MovieList movies={movies} handleOnDelete={handleOnDelete} />
       </Container>
     </div>
   );

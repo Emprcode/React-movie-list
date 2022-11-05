@@ -4,7 +4,7 @@ import Row from "react-bootstrap/Row";
 import { MovieCard } from "./MovieCard";
 import { Buttons } from "./Buttons";
 
-export const MovieList = ({ movies }) => {
+export const MovieList = ({ movies, handleOnDelete }) => {
   const [display, setDisplay] = useState([]);
   // console.log("before eddect")
 
@@ -35,7 +35,12 @@ export const MovieList = ({ movies }) => {
       <Row>
         <Col className="mt-3 d-flex justify-content-around flex-wrap">
           {display.map((item) => (
-            <MovieCard key={item.imdbID} movie={item} />
+            <MovieCard
+              key={item.imdbID}
+              movie={item}
+              showDelete={true}
+              func={handleOnDelete}
+            />
           ))}
         </Col>
       </Row>
