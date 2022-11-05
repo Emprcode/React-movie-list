@@ -6,7 +6,7 @@ import { MovieCard } from "./MovieCard";
 import { useState } from "react";
 import { fetchData } from "../utilities/AxiosHelpers";
 
-export const SearchForm = () => {
+export const SearchForm = ({ addMovie }) => {
   const [form, setForm] = useState("");
   const [movie, setMovie] = useState({});
   const [error, setError] = useState("");
@@ -45,19 +45,31 @@ export const SearchForm = () => {
 
   // display movie data in  our UI
 
+  const handleOnAdd = (cat) => {
+    console.log(cat);
+    addMovie({ ...movie, cat });
+    setMovie({});
+    setForm("");
+  };
+
   return (
     <Form className="py-3" onSubmit={handleOnSubmit}>
       <Row>
         <Col></Col>
         <Col>
-          <Form.Control onChange={handleOnChange} placeholder="Movie name" />
+          <Form.Control
+            value={form}
+            onChange={handleOnChange}
+            placeholder="Movie name"
+            required
+          />
         </Col>
         <Col>
           <Button type="submit"> Search </Button>
         </Col>
       </Row>
       <Row className="py-3 justify-content-center">
-        {movie.imdbID && <MovieCard movie={movie} />}
+        {movie.imdbID && <MovieCard movie={movie} func={handleOnAdd} />}
         {error && <Alert variant="danger">{error}</Alert>}
       </Row>
     </Form>
