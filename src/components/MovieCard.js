@@ -1,6 +1,5 @@
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import { FaTimes } from "react-icons/fa";
 
 export const MovieCard = ({ movie = {}, func, showDelete, handleOnClear }) => {
   console.log(movie);
@@ -29,7 +28,7 @@ export const MovieCard = ({ movie = {}, func, showDelete, handleOnClear }) => {
               Happy
             </Button>
             <span className="icon" onClick={handleOnClear} variant="primary">
-              <i class="fa-solid fa-circle-xmark"></i>
+              <i className="fa-solid fa-circle-xmark"></i>
             </span>
             <Button onClick={() => func("lazy")} variant="warning">
               Sad{" "}
