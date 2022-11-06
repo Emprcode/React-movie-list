@@ -65,6 +65,10 @@ export const SearchForm = ({ addMovie }) => {
     setForm("");
   };
 
+  const handleOnClear = () => {
+    setMovie({});
+  };
+
   return (
     <Form className="py-3" onSubmit={handleOnSubmit}>
       <Row>
@@ -82,7 +86,13 @@ export const SearchForm = ({ addMovie }) => {
         </Col>
       </Row>
       <Row className="py-3 justify-content-center">
-        {movie.imdbID && <MovieCard movie={movie} func={handleOnAdd} />}
+        {movie.imdbID && (
+          <MovieCard
+            movie={movie}
+            func={handleOnAdd}
+            handleOnClear={handleOnClear}
+          />
+        )}
         {error && <Alert variant="danger">{error}</Alert>}
       </Row>
     </Form>
