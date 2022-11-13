@@ -18,20 +18,19 @@ export const MovieCard = ({ movie = {}, func, showDelete, handleOnClear }) => {
         {showDelete ? (
           <div className="d-grid">
             <Button onClick={() => func(imdbID)} variant="danger">
-              {" "}
-              Delete{" "}
+             Delete
             </Button>
           </div>
         ) : (
           <div className="d-flex justify-content-between">
             <Button onClick={() => func("happy")} variant="success">
-              Happy
+             Happy
             </Button>
             <span className="icon" onClick={handleOnClear} variant="primary">
               <i className="fa-solid fa-circle-xmark"></i>
             </span>
             <Button onClick={() => func("lazy")} variant="warning">
-              Lazy{" "}
+              Lazy
             </Button>
           </div>
         )}

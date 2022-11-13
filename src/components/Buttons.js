@@ -9,10 +9,10 @@ export const Buttons = ({ handleOnFilter }) => {
           All
         </Button>
         <Button onClick={() => handleOnFilter("happy")} variant="success">
-          Happy
+        Happy
         </Button>
         <Button onClick={() => handleOnFilter("lazy")} variant="warning">
-          Lazy
+        Lazy
         </Button>
       </ButtonGroup>
     </div>
