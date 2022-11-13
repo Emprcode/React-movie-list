@@ -25,10 +25,7 @@ function App() {
   return (
     <div className="wrapper">
       <Container>
-        {/* title */}
-        <Title />
-
-        {/* form  */}
+       <Title />
         <SearchForm addMovie={addMovie} />
         <MovieList movies={movies} handleOnDelete={handleOnDelete} />
       </Container>
