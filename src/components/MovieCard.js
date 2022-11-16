@@ -29,9 +29,7 @@ export const MovieCard = ({ movie = {}, func, showDelete, handleOnClear }) => {
             <span className="icon" onClick={handleOnClear} variant="primary">
               <i className="fa-solid fa-circle-xmark"></i>
             </span>
-            <Button onClick={() => func("lazy")} variant="warning">
-              Lazy
-            </Button>
+            <Button onClick={() => func("lazy")} variant="warning">Lazy</Button>
           </div>
         )}
       </Card.Body>
